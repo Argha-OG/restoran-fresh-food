@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShoppingCart, MapPin, Menu, Search } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetClose } from "@/components/ui/sheet";
 import logo from '../assets/rff.jpg';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
@@ -86,9 +87,54 @@ const Layout = ({ children }) => {
                                 )}
                             </Button>
 
-                            <Button variant="ghost" size="icon" className="md:hidden rounded-full text-slate-800 hover:bg-green-50">
-                                <Menu className="w-6 h-6" />
-                            </Button>
+                            <Sheet>
+                                <SheetTrigger asChild>
+                                    <Button variant="ghost" size="icon" className="md:hidden rounded-full text-slate-800 hover:bg-green-50">
+                                        <Menu className="w-6 h-6" />
+                                    </Button>
+                                </SheetTrigger>
+                                <SheetContent side="right" className="w-[300px] sm:w-[540px] pt-12">
+                                    <SheetHeader className="mb-8 text-left">
+                                        <SheetTitle className="text-2xl font-bold flex items-center gap-2">
+                                            <img src={logo} alt="Restoran Fresh Food" className="w-8 h-8 rounded-lg" />
+                                            Menu
+                                        </SheetTitle>
+                                    </SheetHeader>
+                                    <div className="flex flex-col gap-4 text-lg font-medium">
+                                        <SheetClose asChild>
+                                            <Link to="/" className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-green-50 text-slate-600 hover:text-green-700 transition-colors">
+                                                Home
+                                            </Link>
+                                        </SheetClose>
+                                        <SheetClose asChild>
+                                            <Link to="/services" className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-green-50 text-slate-600 hover:text-green-700 transition-colors">
+                                                Services
+                                            </Link>
+                                        </SheetClose>
+                                        <SheetClose asChild>
+                                            <Link to="/about" className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-green-50 text-slate-600 hover:text-green-700 transition-colors">
+                                                About Us
+                                            </Link>
+                                        </SheetClose>
+                                        <SheetClose asChild>
+                                            <Link to="/contact" className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-green-50 text-slate-600 hover:text-green-700 transition-colors">
+                                                Contact
+                                            </Link>
+                                        </SheetClose>
+                                        <div className="h-px bg-slate-100 my-2" />
+                                        <SheetClose asChild>
+                                            <Button
+                                                variant="outline"
+                                                className="w-full justify-start gap-3 rounded-xl border-slate-200 text-slate-600"
+                                                onClick={() => setIsSearchOpen(true)}
+                                            >
+                                                <Search className="w-5 h-5" />
+                                                Search Dishes
+                                            </Button>
+                                        </SheetClose>
+                                    </div>
+                                </SheetContent>
+                            </Sheet>
                         </div>
                     </div>
                 </div>
