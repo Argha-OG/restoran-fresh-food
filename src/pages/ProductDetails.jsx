@@ -40,23 +40,23 @@ const ProductDetails = () => {
                 <ArrowLeft className="w-4 h-4" /> Back to Menu
             </Button>
 
-            <div className="grid md:grid-cols-2 gap-12 items-start glass-card p-8 rounded-3xl">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-start glass-card p-4 md:p-8 rounded-2xl md:rounded-3xl">
                 {/* Image Section */}
-                <div className="aspect-square rounded-2xl overflow-hidden bg-white/50 border border-white/40 shadow-inner group relative">
+                <div className="aspect-square rounded-xl md:rounded-2xl overflow-hidden bg-white/50 border border-white/40 shadow-inner group relative">
                     <img
                         src={product.image}
                         alt={product.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-800 font-bold px-4 py-2 rounded-full shadow-lg">
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur text-slate-800 font-bold px-4 py-2 rounded-full shadow-lg text-sm md:text-base">
                         RM {product.price.toFixed(2)}
                     </div>
                 </div>
 
                 {/* Details Section */}
-                <div className="space-y-8">
+                <div className="space-y-6 md:space-y-8">
                     <div className="space-y-4">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-wrap">
                             <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase rounded-full tracking-wider">
                                 {product.category}
                             </span>
@@ -67,11 +67,11 @@ const ProductDetails = () => {
                             )}
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl font-black text-slate-800 leading-tight">
+                        <h1 className="text-3xl md:text-5xl font-black text-slate-800 leading-tight">
                             {product.name}
                         </h1>
 
-                        <p className="text-lg text-slate-600 leading-relaxed font-medium">
+                        <p className="text-base md:text-lg text-slate-600 leading-relaxed font-medium">
                             {product.description}
                         </p>
 
@@ -82,24 +82,24 @@ const ProductDetails = () => {
 
                     <div className="h-px bg-slate-200" />
 
-                    <div className="flex gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4">
                         <Button
                             size="lg"
-                            className="flex-1 rounded-xl bg-slate-900 hover:bg-slate-800 h-14 text-lg"
+                            className="flex-1 rounded-xl bg-slate-900 hover:bg-slate-800 h-12 md:h-14 text-base md:text-lg"
                             onClick={() => addToCart(product)}
                         >
                             Add to Cart
                         </Button>
                         <Button
                             size="lg"
-                            className="flex-1 rounded-xl bg-green-600 hover:bg-green-700 h-14 text-lg shadow-xl shadow-green-600/20"
+                            className="flex-1 rounded-xl bg-green-600 hover:bg-green-700 h-12 md:h-14 text-base md:text-lg shadow-xl shadow-green-600/20"
                             onClick={handlePurchase}
                         >
                             Purchase Now
                         </Button>
                     </div>
 
-                    <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div className="bg-slate-50 p-4 md:p-6 rounded-2xl border border-slate-100">
                         <h4 className="font-bold text-slate-800 mb-2">Delivery Information</h4>
                         <p className="text-sm text-slate-500">
                             Available for immediate delivery. Order now and receive it hot within 30-45 minutes depending on your location in Seri Kembangan.
